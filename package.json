@@ -1,0 +1,17 @@
+{
+  "name": "quadshooter2",
+  "version": "1.0.0",
+  "description": "multiplayer 2d shooter",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

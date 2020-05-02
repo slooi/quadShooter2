@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Quad Shooter</title>
+        <style>
+            canvas{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- shader source -->
+        <script type="shader" id="vsSource">
+            attribute vec2 a_Position;
+            attribute vec3 a_Color;
+
+            varying vec3 v_Color;
+
+            uniform vec2 u_InvRes;
+            uniform vec2 u_Position;
+            uniform vec2 u_Translate;
+
+            void main(){
+                v_Color = a_Color;
+
+                gl_Position = vec4(-1.0+(a_Position.x+u_Translate.x)*u_InvRes.x,1.0-(a_Position.y+u_Translate.y)*u_InvRes.y,0,1);
+                gl_PointSize = 10.0;
+            }
+        </script>
+
+        <script type="shader" id="fsSource">
+            precision mediump float;
+            varying vec3 v_Color;
+
+            void main(){
+                gl_FragColor = vec4(v_Color,1);
+            }
+        </script>
+
+        <!-- constants -->
+        <script src="constants.js"></script>
+
+        <!-- scripts -->
+        <script src="inputHandler.js"></script>
+        <script src="P_Quad.js"></script>
+        <script src="P_Player.js"></script>
+        <script src="Camera.js"></script>
+        <script src="connection.js"></script>
+        <script src="webgl.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
